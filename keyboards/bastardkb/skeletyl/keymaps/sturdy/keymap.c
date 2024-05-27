@@ -17,9 +17,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     //
 	[1] = LAYOUT_split_3x5_3(
-        KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                       KC_EQL, KC_GRV, KC_COLN, KC_SCLN, KC_PLUS,
-        OSM(MOD_LALT), OSM(MOD_LGUI), OSM(MOD_LSFT), OSM(MOD_LCTL),     KC_CIRC, KC_ASTR, KC_LPRN, KC_LBRC, KC_LCBR, KC_MINS,
-        KC_ESC, KC_NO, KC_BSLS, KC_PIPE, KC_AMPR,                       KC_TILD, KC_RPRN, KC_RBRC, KC_RBRC, KC_UNDS,
+        KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                                       KC_EQL, KC_GRV, KC_COLN, KC_SCLN, KC_PLUS,
+        OSM(MOD_LALT), OSM(MOD_LGUI), OSM(MOD_LSFT), OSM(MOD_LCTL), KC_CIRC,            KC_ASTR, KC_LPRN, KC_LBRC, KC_LCBR, KC_MINS,
+        KC_ESC, KC_NO, KC_BSLS, KC_PIPE, KC_AMPR,                                       KC_TILD, KC_RPRN, KC_RBRC, KC_RCBR, KC_UNDS,
                                 KC_TRNS, KC_TRNS, KC_TRNS,       KC_TRNS, KC_TRNS, KC_TRNS
     ),
     //
@@ -39,8 +39,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //
 	[4] = LAYOUT_split_3x5_3(
         RCS(KC_V), KC_MSTP, KC_MPLY, RCS(KC_C), RGB_VAI,                                  KC_F12, KC_F7, KC_F8, KC_F9, KC_BRIU,
-        OSM(MOD_LALT), OSM(MOD_LGUI), OSM(MOD_LSFT), OSM(MOD_LCTL), RGB_HUI,            KC_F11, KC_F4, KC_F5, KC_F6, KC_BRID,
-        KC_MUTE, KC_VOLD, RGB_MOD, KC_VOLU, RGB_TOG,                                        KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,
+        OSM(MOD_LALT), OSM(MOD_LGUI), OSM(MOD_LSFT), OSM(MOD_LCTL), RGB_HUI,              KC_F11, KC_F4, KC_F5, KC_F6, KC_BRID,
+        KC_MUTE, KC_VOLD, RGB_MOD, KC_VOLU, RGB_TOG,                                      KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,
                                KC_TRNS, KC_TRNS, KC_TRNS,                      KC_TRNS, KC_TRNS, KC_TRNS
     )
 };
