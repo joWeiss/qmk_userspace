@@ -1,11 +1,15 @@
 #include QMK_KEYBOARD_H
 
 // combos
-const uint16_t PROGMEM esc_combo[] = {KC_Q, KC_G, COMBO_END};
-const uint16_t PROGMEM dash_combo[] = {KC_DOT, KC_A, COMBO_END};
+const uint16_t PROGMEM esc_combo[] = {KC_M, KC_C, COMBO_END};
+const uint16_t PROGMEM underscore_combo[] = {KC_L, KC_COMM, COMBO_END};
+const uint16_t PROGMEM colon_combo[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM enter_combo[] = {KC_X, KC_M, COMBO_END};
 combo_t key_combos[] = {
     COMBO(esc_combo, KC_ESC),
-    COMBO(dash_combo, KC_MINS),
+    COMBO(underscore_combo, KC_UNDS),
+    COMBO(colon_combo, KC_COLN),
+    COMBO(enter_combo, KC_ENT)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
