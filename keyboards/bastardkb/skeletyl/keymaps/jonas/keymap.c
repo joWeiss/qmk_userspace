@@ -13,13 +13,15 @@ enum LAYER {
 
 // combos
 const uint16_t PROGMEM esc_combo[] = {KC_M, KC_C, COMBO_END};
+const uint16_t PROGMEM strdy_esc_combo[] = {KC_Q, KC_G, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_L, KC_COMM, COMBO_END};
 const uint16_t PROGMEM colon_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM enter_combo[] = {KC_X, KC_M, COMBO_END};
-const uint16_t PROGMEM use_sturdy_combo[] = {KC_Z, KC_X, KC_M, COMBO_END};
+const uint16_t PROGMEM use_sturdy_combo[] = {KC_U, KC_P, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM use_workman_combo[] = {KC_V, KC_M, KC_L, COMBO_END};
 combo_t key_combos[] = {
     COMBO(esc_combo, KC_ESC),
+    COMBO(strdy_esc_combo, KC_ESC),
     COMBO(underscore_combo, KC_UNDS),
     COMBO(colon_combo, KC_COLN),
     COMBO(enter_combo, KC_ENT),
@@ -29,16 +31,16 @@ combo_t key_combos[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[WORKMAN] = LAYOUT_split_3x5_3( // Workman
-        KC_Q, KC_D, KC_R, KC_W, KC_B,                  KC_J, KC_F, KC_U, KC_P, KC_QUOT,
-        KC_A, KC_S, KC_H, KC_T, KC_G,                  KC_Y, KC_N, KC_E, KC_O, KC_I,
+        KC_Q, KC_D, KC_R, KC_W, KC_B,                             KC_J, KC_F, KC_U, KC_P, KC_QUOT,
+        KC_A, KC_S, KC_H, KC_T, KC_G,                             KC_Y, KC_N, KC_E, KC_O, KC_I,
         LT(MOUSE, KC_Z), KC_X, KC_M, KC_C, KC_V,                  KC_K, KC_L, KC_COMM, KC_DOT, KC_SLSH,
-                      MO(NAV), SC_SENT, MO(FUN),    MO(NUM), KC_SPC, MO(SYM)
+                      MO(NAV), KC_SPC, MO(FUN),    MO(NUM), SC_SENT, MO(SYM)
     ),
 	[STURDY] = LAYOUT_split_3x5_3( // Sturdy layer
-        KC_V, KC_M, KC_L, KC_C, KC_P,                  KC_X, KC_F, KC_O, KC_U, KC_J,
-        KC_S, KC_T, KC_R, KC_D, KC_Y,                  KC_DOT, KC_N, KC_A, KC_E, KC_I,
-        KC_Z, KC_K, KC_Q, KC_G, KC_W,                  KC_B, KC_H, KC_QUOT, KC_SLSH, KC_COMM,
-                      MO(NAV), SC_SENT, MO(FUN),    MO(NUM), KC_SPC, MO(SYM)
+        KC_V, KC_M, KC_L, KC_C, KC_P,                             KC_X, KC_F, KC_O, KC_U, KC_J,
+        KC_S, KC_T, KC_R, KC_D, KC_Y,                             KC_DOT, KC_N, KC_A, KC_E, KC_I,
+        LT(MOUSE, KC_Z), KC_K, KC_Q, KC_G, KC_W,                  KC_B, KC_H, KC_QUOT, KC_SLSH, KC_COMM,
+                      MO(NAV), KC_SPC, MO(FUN),    MO(NUM), SC_SENT, MO(SYM)
     ),
     //
 	[SYM] = LAYOUT_split_3x5_3(
