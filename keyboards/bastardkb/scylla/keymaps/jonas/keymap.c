@@ -37,7 +37,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
     switch (keycode) {
-        // mod_tap
+        // mod_tap for strdy layout
         SMTD_MT(CKC_S, KC_S, KC_LEFT_ALT)
         SMTD_MT(CKC_T, KC_T, KC_LEFT_GUI)
         SMTD_MT(CKC_R, KC_R, KC_LSFT)
@@ -47,7 +47,7 @@ void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
         SMTD_MT(CKC_A, KC_A, KC_LSFT)
         SMTD_MT(CKC_N, KC_N, KC_LEFT_CTRL)
         SMTD_MT(CKC_SPC, KC_SPC, KC_LSFT)
-        // mod_tap
+        // layer_tap
         SMTD_LT(CKC_ENT, KC_ENT, NUM)
     }
 }
@@ -83,15 +83,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_A, KC_S, KC_H, KC_T, KC_G,                             KC_Y, KC_N, KC_E,    KC_O, KC_I,      KC_BSPC,
        MO(MOUSE), KC_Z, KC_X, KC_M, KC_C, KC_V,                            KC_K, KC_L, KC_COMM, KC_DOT, KC_SLSH, LSG(KC_N),
                       MO(NAV), CKC_SPC, MO(SYM),               MO(FUN), CKC_ENT, MO(NUM),
-                                KC_LGUI, MO(SYM),              MO(FUN), LGUI(KC_ENT)
+                                KC_LGUI, DF(STURDY),              DF(WORKMAN), LGUI(KC_ENT)
     ),
 	[STURDY] = LAYOUT_split_4x6_5( // Sturdy layer
         KC_ESC,    KC_1,  KC_2,  KC_3,  KC_4,  KC_5,                            KC_6,   KC_7,  KC_8,    KC_9,    KC_0, KC_BSPC,
         KC_TAB,    KC_V,  KC_M,  KC_L,  KC_C,  KC_P,                            KC_X,   KC_F,  KC_O,    KC_U,    KC_J, KC_DEL,
         KC_LCTL,   CKC_S, CKC_T, CKC_R, CKC_D, KC_Y,                            KC_DOT, CKC_N, CKC_A,   CKC_E,   CKC_I, KC_BSPC,
         MO(MOUSE), KC_Z,  KC_K,  KC_Q,  KC_G,  KC_W,                            KC_B,   KC_H,  KC_QUOT, KC_SLSH, KC_COMM, LSG(KC_N),
-                                      MO(NAV), CKC_SPC, MO(SYM),    MO(FUN), CKC_ENT, MO(NUM),
-                                                KC_LGUI, MO(SYM),   MO(FUN), LGUI(KC_ENT)
+                                      MO(NAV), CKC_SPC, MO(SYM),       MO(FUN), CKC_ENT, MO(NUM),
+                                                KC_LGUI, _______,   _______, LGUI(KC_ENT)
     ),
     //
 	[SYM] = LAYOUT_split_4x6_5(
