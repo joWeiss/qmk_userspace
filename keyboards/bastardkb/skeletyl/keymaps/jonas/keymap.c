@@ -11,12 +11,56 @@ enum LAYER {
   MOUSE = 6,
 };
 
+enum custom_keycodes {
+    SMTD_KEYCODES_BEGIN = SAFE_RANGE,
+    CKC_S, // reads as C(ustom) + KC_S, but you may give any name here
+    CKC_T,
+    CKC_R,
+    CKC_ENT,
+    CKC_SPC,
+    CKC_D,
+    CKC_I,
+    CKC_E,
+    CKC_A,
+    CKC_N,
+    SMTD_KEYCODES_END,
+};
+
+#include "sm_td.h"
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_smtd(keycode, record)) {
+        return false;
+    }
+    return true;
+};
+
+void on_smtd_action(uint16_t keycode, smtd_action action, uint8_t tap_count) {
+    switch (keycode) {
+        // mod_tap
+        SMTD_MT(CKC_S, KC_S, KC_LEFT_ALT)
+        SMTD_MT(CKC_T, KC_T, KC_LEFT_GUI)
+        SMTD_MT(CKC_R, KC_R, KC_LSFT)
+        SMTD_MT(CKC_D, KC_D, KC_LEFT_CTRL)
+        SMTD_MT(CKC_I, KC_I, KC_LEFT_ALT)
+        SMTD_MT(CKC_E, KC_E, KC_LEFT_GUI)
+        SMTD_MT(CKC_A, KC_A, KC_LSFT)
+        SMTD_MT(CKC_N, KC_N, KC_LEFT_CTRL)
+        SMTD_MT(CKC_SPC, KC_SPC, KC_LSFT)
+        // mod_tap
+        SMTD_LT(CKC_ENT, KC_ENT, NUM)
+    }
+}
+
 // combos
 const uint16_t PROGMEM esc_combo[] = {KC_M, KC_C, COMBO_END};
 const uint16_t PROGMEM strdy_esc_combo[] = {KC_Q, KC_G, COMBO_END};
 const uint16_t PROGMEM underscore_combo[] = {KC_L, KC_COMM, COMBO_END};
 const uint16_t PROGMEM colon_combo[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM enter_combo[] = {KC_X, KC_M, COMBO_END};
+const uint16_t PROGMEM strdy_enter_combo[] = {KC_H, KC_QUOT, COMBO_END};
+const uint16_t PROGMEM bspc_combo[] = {KC_DOT, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM strdy_bspc_combo[] = {KC_SLSH, KC_COMM, COMBO_END};
 const uint16_t PROGMEM use_sturdy_combo[] = {KC_U, KC_P, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM use_workman_combo[] = {KC_V, KC_M, KC_L, COMBO_END};
 combo_t key_combos[] = {
@@ -25,6 +69,9 @@ combo_t key_combos[] = {
     COMBO(underscore_combo, KC_UNDS),
     COMBO(colon_combo, KC_COLN),
     COMBO(enter_combo, KC_ENT),
+    COMBO(strdy_enter_combo, KC_ENT),
+    COMBO(bspc_combo, KC_BSPC),
+    COMBO(strdy_bspc_combo, KC_BSPC),
     COMBO(use_sturdy_combo, DF(STURDY)),
 		COMBO(use_workman_combo, DF(WORKMAN))
 };
@@ -34,13 +81,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q, KC_D, KC_R, KC_W, KC_B,                             KC_J, KC_F, KC_U, KC_P, KC_QUOT,
         KC_A, KC_S, KC_H, KC_T, KC_G,                             KC_Y, KC_N, KC_E, KC_O, KC_I,
         LT(MOUSE, KC_Z), KC_X, KC_M, KC_C, KC_V,                  KC_K, KC_L, KC_COMM, KC_DOT, KC_SLSH,
-                      MO(NAV), KC_SPC, MO(FUN),    MO(NUM), SC_SENT, MO(SYM)
+                      MO(NAV), CKC_SPC, MO(SYM),    MO(FUN), CKC_ENT, MO(NUM)
     ),
 	[STURDY] = LAYOUT_split_3x5_3( // Sturdy layer
-        KC_V, KC_M, KC_L, KC_C, KC_P,                             KC_X, KC_F, KC_O, KC_U, KC_J,
-        KC_S, KC_T, KC_R, KC_D, KC_Y,                             KC_DOT, KC_N, KC_A, KC_E, KC_I,
-        LT(MOUSE, KC_Z), KC_K, KC_Q, KC_G, KC_W,                  KC_B, KC_H, KC_QUOT, KC_SLSH, KC_COMM,
-                      MO(NAV), KC_SPC, MO(FUN),    MO(NUM), SC_SENT, MO(SYM)
+        KC_V,  KC_M,  KC_L,  KC_C,  KC_P,                              KC_X,   KC_F, KC_O, KC_U, KC_J,
+        CKC_S, CKC_T, CKC_R, CKC_D, KC_Y,                             KC_DOT, CKC_N, CKC_A, CKC_E, CKC_I,
+        LT(MOUSE, KC_Z), KC_K, KC_Q, KC_G, KC_W,                 KC_B, KC_H,  KC_QUOT, KC_SLSH, KC_COMM,
+                      MO(NAV), CKC_SPC, MO(SYM),    MO(FUN), CKC_ENT, MO(NUM)
     ),
     //
 	[SYM] = LAYOUT_split_3x5_3(
